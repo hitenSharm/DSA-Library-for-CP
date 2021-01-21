@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Algorithms and Data Structures</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-sm-4">
+                <h2>Data Structures and Algorithms</h2>
+            </div>
+        </div>
+
+        <!--Navbar starts here-->
+
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Number Theory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="graph.html">Graphs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dp.html">Dyanmic Programming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="geometry.html">Geometry</a>
+            </li>
+        </ul>
+
+
+        <!--Navbar ends here-->
+
+
+        <!--sub menu starts-->
+
+
+        <div class="btn-group btn-groups mt-5" role="group" aria-label="Basic example">
+
+            <a href="fenwick.html" class="active">
+                <button type="button" class="btn btn-light rounded-0">Fenwick Tree</button>
+            </a>
+            
+            <a href="segmenttree.html">
+                <button type="button" class="btn btn-light rounded-0">Segment Trees</button>
+            </a>
+
+
+            <a href="persistentst.html">
+                <button type="button" class="btn btn-light rounded-0">Persistent Segment Tree</button>
+            </a>
+          </div>
+
+
+
+        <!-- sub menu ends -->
+
+
+
+
+        <!--Number Theory-->
+        <div class="row mt-sm-5">
+            <h3> Fenwick Tree </h3>
+
+
+            <!--Rectable Geometry-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Range Sum Point Update</h5>
+                    <!--code-->
+
+
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">fenwick</span> { <span style="color: #888888">// 1-based indexing (keep 0-based in main)</span>
+<span style="color: #997700; font-weight: bold">public:</span>
+	T size;
+	vector<span style="color: #333333">&lt;</span>T <span style="color: #333333">&gt;</span> table;
+
+	fenwick(T size) {
+		<span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">-&gt;</span>size <span style="color: #333333">=</span> size<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>;
+		table.assign(size<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">0</span>);
+	}
+
+	fenwick(vector<span style="color: #333333">&lt;</span>T <span style="color: #333333">&gt;</span> a) <span style="color: #333333">:</span> fenwick(a.size()) {
+		<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">size_t</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> a.size(); i<span style="color: #333333">++</span>) {
+			addin(i, a[i]);
+		}
+	}
+
+	<span style="color: #333399; font-weight: bold">void</span> addin(T i, T data) {
+		<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333333">++</span>i; i <span style="color: #333333">&lt;</span> size; i <span style="color: #333333">+=</span> i <span style="color: #333333">&amp;</span> <span style="color: #333333">-</span>i) {
+			table[i] <span style="color: #333333">+=</span> data;
+		}
+	}
+
+	<span style="color: #888888">// Update ith value by delta</span>
+	<span style="color: #333399; font-weight: bold">void</span> update(T i, T delta) {
+		<span style="color: #008800; font-weight: bold">while</span> (i <span style="color: #333333">&lt;</span> size) {
+			table[i] <span style="color: #333333">+=</span> delta;
+			i <span style="color: #333333">+=</span> (i <span style="color: #333333">&amp;</span> <span style="color: #333333">-</span>i);
+		}
+	}
+
+	<span style="color: #888888">// Update l to r inclusive values ny delta</span>
+	<span style="color: #333399; font-weight: bold">void</span> update(T l, T r, T delta) {
+		addin(l, delta);
+		addin(r<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #333333">-</span>delta);
+	}
+
+	<span style="color: #333399; font-weight: bold">void</span> change(T i, T change) {
+		T prevdata;
+		<span style="color: #008800; font-weight: bold">if</span>(i<span style="color: #333333">&lt;</span>size) {
+			prevdata <span style="color: #333333">=</span> table[i];
+			table[i]<span style="color: #333333">=</span>change;
+		}
+		T delta<span style="color: #333333">=</span>change <span style="color: #333333">-</span> prevdata;
+		update(i, delta);
+	}
+
+	<span style="color: #888888">// Compute prefix sum from 1 to i</span>
+	T sum(T i) {
+		T sum <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+		<span style="color: #008800; font-weight: bold">while</span> (i <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+			sum <span style="color: #333333">+=</span> table[i];
+			i <span style="color: #333333">-=</span> (i <span style="color: #333333">&amp;</span> <span style="color: #333333">-</span>i);
+		}
+		<span style="color: #008800; font-weight: bold">return</span> sum;
+	}
+
+	T rangesum(T l, T r) {
+		<span style="color: #008800; font-weight: bold">return</span> sum(r) <span style="color: #333333">-</span> sum(l<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>);
+	}
+	<span style="color: #888888">/* In main()</span>
+<span style="color: #888888">	1. fenwick&lt;int&gt; bit(a);</span>
+<span style="color: #888888">	*/</span>
+};
+</pre></td></tr></table></div>
+
+
+
+                    <!--code end-->
+                </div>
+            </div>
+            <!--End of Rectangle Geometry-->
+
+
+
+        </div>
+
+        <!--Geometry ends here-->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br><br>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Algorithms and Data Structures</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-sm-4">
+                <h2>Data Structures and Algorithms</h2>
+            </div>
+        </div>
+
+        <!--Navbar starts here-->
+
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Number Theory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="graph.html">Graphs</a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" href="strings.html">Strings</a>
+			  </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="dp.html">Dyanmic Programming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="geometry.html">Geometry</a>
+            </li>
+        </ul>
+
+
+        <!--Navbar ends here-->
+
+
+
+        <!--Number Theory-->
+        <div class="row mt-sm-5">
+            <h3> Dynamic Programming </h3>
+
+
+            <!--Rectable Geometry-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>0-1 Knapsack</h5>
+                    <!--code-->
+
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">knapsack</span>(<span style="color: #333399; font-weight: bold">int</span> w[], <span style="color: #333399; font-weight: bold">int</span> val[], <span style="color: #333399; font-weight: bold">int</span> W, <span style="color: #333399; font-weight: bold">int</span> n) {
+	<span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #333333">||</span> W <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+	}
+	<span style="color: #008800; font-weight: bold">if</span> (w[n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">&lt;=</span> W) {
+		<span style="color: #008800; font-weight: bold">return</span> max(val[n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">+</span> knapsack(w, val, W <span style="color: #333333">-</span> w[n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>], n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>), knapsack(w, val, W, n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>));
+	}
+	<span style="color: #008800; font-weight: bold">else</span> {
+		<span style="color: #008800; font-weight: bold">return</span> knapsack(w, val, W, n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>);
+	}
+}
+</pre></td></tr></table></div>
+
+
+
+                    <!--code end-->
+                </div>
+            </div>
+            <!--End of Rectangle Geometry-->
+
+
+
+        </div>
+
+        <!--Geometry ends here-->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br><br>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

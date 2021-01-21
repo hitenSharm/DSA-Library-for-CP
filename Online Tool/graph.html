@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Algorithms and Data Structures</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-sm-4">
+                <h2>Data Structures and Algorithms</h2>
+            </div>
+        </div>
+
+        <!--Navbar starts here-->
+
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Number Theory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="graph.html">Graphs</a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" href="strings.html">Strings</a>
+			  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dp.html">Dyanmic Programming</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="geometry.html">Geometry</a>
+            </li>
+        </ul>
+
+
+        <!--Navbar ends here-->
+
+
+        <!--sub menu starts-->
+
+
+        <div class="btn-group btn-groups mt-5" role="group" aria-label="Basic example">
+
+            <a href="fenwick.html">
+                <button type="button" class="btn btn-light rounded-0">Fenwick Tree</button>
+            </a>
+            
+            <a href="segmenttree.html">
+                <button type="button" class="btn btn-light rounded-0">Segment Trees</button>
+            </a>
+
+
+            <a href="persistentst.html">
+                <button type="button" class="btn btn-light rounded-0">Persistent Segment Tree</button>
+            </a>
+          </div>
+
+
+
+        <!-- sub menu ends -->
+
+
+        <!--Graph Theory-->
+        <div class="row mt-sm-5">
+            <h3> Graph Theory</h3>
+
+
+            <!--DFS-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>DFS- Depth First Search</h5>
+                    <!--code-->
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll u) {
+	visited[u]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">:</span>adj[u]) {
+		<span style="color: #008800; font-weight: bold">if</span>(<span style="color: #333333">!</span>visited[u]) {
+			dfs(i);
+		}
+	}
+}
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--DFS ends-->
+
+
+            <!--BFS-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>BFS- Breadth First Search</h5>
+                    <!--code-->
+                    
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">bool</span> v[MAXN];
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">bfs</span>(<span style="color: #333399; font-weight: bold">int</span> u) {
+	queue<span style="color: #333333">&lt;</span>ll <span style="color: #333333">&gt;</span> q;
+	q.push(u);
+	v[u]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">while</span>(<span style="color: #333333">!</span>q.empty()) {
+		ll f<span style="color: #333333">=</span>q.front();
+		q.pop();
+		cout<span style="color: #333333">&lt;&lt;</span>f<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot; &quot;</span>;
+		<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #008800; font-weight: bold">auto</span> i<span style="color: #333333">=</span>adj[f].begin(); i<span style="color: #333333">!=</span>adj[f].end(); i<span style="color: #333333">++</span>) {
+			<span style="color: #008800; font-weight: bold">if</span>(<span style="color: #333333">!</span>v[<span style="color: #333333">*</span>i]) {
+				q.push(<span style="color: #333333">*</span>i);
+				v[<span style="color: #333333">*</span>i]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+			}
+		}
+	}
+}
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--BFS ends-->
+            
+
+            <!--Bipartite test-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Bipartite Test/Two colouring problem</h5>
+                    <!--code-->
+                    
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">bool</span> visited[maxn];
+vector<span style="color: #333333">&lt;</span>ll <span style="color: #333333">&gt;</span> adj[maxn];
+ll col[maxn];
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">addedge</span>(ll u, ll v) {
+	adj[u].pb(v);
+	adj[v].pb(u);
+}
+<span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll u, ll c) {
+	visited[u] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+	col[u] <span style="color: #333333">=</span> c;
+	<span style="color: #008800; font-weight: bold">for</span> (ll i <span style="color: #333333">:</span> adj[u]) {
+		<span style="color: #008800; font-weight: bold">if</span> (<span style="color: #333333">!</span>visited[i]) {
+			<span style="color: #008800; font-weight: bold">if</span> (dfs(i, c <span style="color: #333333">^</span> <span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+				<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+			}
+		}
+		<span style="color: #008800; font-weight: bold">else</span> {
+			<span style="color: #008800; font-weight: bold">if</span> (col[u] <span style="color: #333333">==</span> col[i]) {
+				<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+}
+</pre></td></tr></table></div>
+
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--Bipartite test ends-->
+
+
+            <!--Cycle Detection test-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Cycle Detection</h5>
+                    <!--code-->
+                    
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">bool</span> visited[maxn];
+<span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll current, ll parent) {
+	visited[current]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">:</span>adj[current]) {
+		<span style="color: #008800; font-weight: bold">if</span>(visited[i]<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">0</span>) {
+			<span style="color: #008800; font-weight: bold">if</span>(dfs(i, current)<span style="color: #333333">==</span><span style="color: #007020">true</span>) {
+				<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+			}
+		}
+		<span style="color: #008800; font-weight: bold">else</span> {
+			<span style="color: #008800; font-weight: bold">if</span>(i<span style="color: #333333">!=</span>parent) {
+				<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">false</span>;
+}
+</pre></td></tr></table></div>
+
+
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--Cycle detection ends-->
+
+
+
+
+            <!--Diameter of tree-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Diameter of a tree</h5>
+                    <!--code-->
+                    
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td><pre style="margin: 0; line-height: 125%">ll dist[maxn];
+<span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll u, ll distance) {
+	visited[u]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	dist[u]<span style="color: #333333">=</span>distance;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">:</span>adj[u]) {
+		<span style="color: #008800; font-weight: bold">if</span>(<span style="color: #333333">!</span>visited[i]) {
+			dfs(i, distance<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>);
+		}
+	}
+}
+ll <span style="color: #0066BB; font-weight: bold">diameterofaTree</span>() {
+	dfs(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">0</span>);
+	ll maxdist<span style="color: #333333">=-</span><span style="color: #0000DD; font-weight: bold">1</span>, U, V;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span>nodes; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(dist[i]<span style="color: #333333">&gt;</span>maxdist) {
+			maxdist<span style="color: #333333">=</span>dist[i];
+			U<span style="color: #333333">=</span>i;
+		}
+	}
+	memset(dist, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(dist));
+	memset(visited, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(visited));
+	dfs(U, <span style="color: #0000DD; font-weight: bold">0</span>);
+	maxdist<span style="color: #333333">=-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span>nodes; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(dist[i]<span style="color: #333333">&gt;</span>maxdist) {
+			maxdist<span style="color: #333333">=</span>dist[i];
+		}
+	}
+	<span style="color: #008800; font-weight: bold">return</span> maxdist;
+}
+</pre></td></tr></table></div>
+
+
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--Diameter of tree ends-->
+
+
+
+            <!--In/out time-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>In/Out Time</h5>
+                    <!--code-->
+                    
+                   <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></td><td><pre style="margin: 0; line-height: 125%">ll in[maxn];
+ll out[maxn];
+ll timer<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+<span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll u) {
+	visited[u]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	in[u]<span style="color: #333333">=</span>timer<span style="color: #333333">++</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">:</span>adj[u]) {
+		<span style="color: #008800; font-weight: bold">if</span>(<span style="color: #333333">!</span>visited[i]) {
+			dfs(i);
+		}
+	}
+	out[u]<span style="color: #333333">=</span>timer<span style="color: #333333">++</span>;
+}
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--In/out Time ends-->
+
+
+            <!--Subtree size time-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Subtree Size</h5>
+                    <!--code-->
+                    
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%">ll subsize[maxn];
+ll <span style="color: #0066BB; font-weight: bold">dfs</span>(ll node) {
+	visited[node]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	ll current_size<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(ll i<span style="color: #333333">:</span>adj[node]) {
+		<span style="color: #008800; font-weight: bold">if</span>(<span style="color: #333333">!</span>visited[i]) {
+			current_size<span style="color: #333333">+=</span>dfs(i);
+		}
+	}
+	subsize[node]<span style="color: #333333">=</span>current_size;
+	<span style="color: #008800; font-weight: bold">return</span> current_size;
+}
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--Sub tree ends here-->
+
+
+            <!--Subtree size time-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Finding Bridges</h5>
+                    <!--code-->
+                    
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%">ll in[maxn], low[maxn], timer;
+<span style="color: #888888">// Bridge condition - low[child] &gt; in[node]</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">dfs</span>(ll u, ll par) {
+	visited[u] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+	in[u] <span style="color: #333333">=</span> low[u] <span style="color: #333333">=</span> timer;
+	timer<span style="color: #333333">++</span>;
+	<span style="color: #008800; font-weight: bold">for</span> (ll child <span style="color: #333333">:</span> adj[u]) {
+		<span style="color: #008800; font-weight: bold">if</span> (child <span style="color: #333333">==</span> par) {
+			<span style="color: #008800; font-weight: bold">continue</span>;
+		}
+		<span style="color: #008800; font-weight: bold">if</span> (visited[child]) {
+			low[u] <span style="color: #333333">=</span> min(in[child], low[u]);
+		}
+		<span style="color: #008800; font-weight: bold">else</span> {
+			dfs(child, u);
+			<span style="color: #008800; font-weight: bold">if</span> (low[child] <span style="color: #333333">&gt;</span> in[u]) {
+				cout <span style="color: #333333">&lt;&lt;</span> u <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; - &quot;</span> <span style="color: #333333">&lt;&lt;</span> child <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; is a bridge</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+			}
+			low[u] <span style="color: #333333">=</span> min(low[child], low[u]);
+		}
+	}
+}
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+                </div>
+            </div>
+            <!--Finding Bridges ends here-->
+
+
+
+
+
+        </div>
+        
+        <!--Graph theory ends here-->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br><br>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script> -->
+</body>
+
+</html>

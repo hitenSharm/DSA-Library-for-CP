@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Algorithms and Data Structures</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-sm-4">
+                <h2>Data Structures and Algorithms</h2>
+            </div>
+        </div>
+
+        <!--Navbar starts here-->
+
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Number Theory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="graph.html">Graphs</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="strings.html">Strings</a>
+			  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dp.html">Dyanmic Programming</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="geometry.html">Geometry</a>
+            </li>
+          </ul>
+
+
+        <!--Navbar ends here-->
+
+
+
+        <!--Number Theory-->
+        <div class="row mt-sm-5">
+            <h3> Number Theory</h3>
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>Sieve Of Eratosthenes</h5>
+                    
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></td><td><pre style="margin: 0; line-height: 125%">vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">bool</span> <span style="color: #333333">&gt;</span> primevis(<span style="color: #0000DD; font-weight: bold">1000009</span>,<span style="color: #0000DD; font-weight: bold">1</span>);
+vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> <span style="color: #333333">&gt;</span> primes;
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sieve</span>() {
+	<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> mx <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1000005</span>;
+	primevis[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>, primevis[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">*</span>i<span style="color: #333333">&lt;=</span>mx; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (primevis[i] <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+			<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> j <span style="color: #333333">=</span> i <span style="color: #333333">*</span> i; j <span style="color: #333333">&lt;=</span> mx; j <span style="color: #333333">+=</span> i) {
+				primevis[j] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>mx; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (primevis[i]) {
+			primes.push_back(i);
+		}
+	}
+}
+</pre></td></tr></table></div>
+
+
+
+
+                </div>
+			</div>  <!--end od sieve-->
+			
+
+
+			<!--Segmented Sieve starts starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Segmented Sieve</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></td><td><pre style="margin: 0; line-height: 125%">vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">bool</span> <span style="color: #333333">&gt;</span> primevis(<span style="color: #0000DD; font-weight: bold">1000009</span>,<span style="color: #0000DD; font-weight: bold">1</span>);
+vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> <span style="color: #333333">&gt;</span> primes;
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">sieve</span>() {
+	<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> max <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1000005</span>;
+	primevis[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>, primevis[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">*</span>i<span style="color: #333333">&lt;=</span>max; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (primevis[i] <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+			<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> i <span style="color: #333333">*</span> i; j <span style="color: #333333">&lt;=</span> max; j <span style="color: #333333">+=</span> i) {
+				primevis[j] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>max; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (primevis[i]) {
+			primes.pb(i);
+		}
+	}
+}
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">print</span>(<span style="color: #333399; font-weight: bold">int</span> l, <span style="color: #333399; font-weight: bold">int</span> r) {
+	<span style="color: #008800; font-weight: bold">if</span>(l<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">1</span>) l<span style="color: #333333">++</span>;
+	<span style="color: #333399; font-weight: bold">int</span> mx<span style="color: #333333">=</span>r<span style="color: #333333">-</span>l<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span> <span style="color: #333333">&gt;</span> v(mx, <span style="color: #0000DD; font-weight: bold">1</span>);
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #008800; font-weight: bold">auto</span> p<span style="color: #333333">:</span>primes) {
+		<span style="color: #008800; font-weight: bold">if</span>(p<span style="color: #333333">*</span>p<span style="color: #333333">&lt;=</span>r) {
+			<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span>(l<span style="color: #333333">/</span>p)<span style="color: #333333">*</span>p;
+			<span style="color: #008800; font-weight: bold">if</span>(i<span style="color: #333333">&lt;</span>l)
+				i<span style="color: #333333">+=</span>p;
+			<span style="color: #008800; font-weight: bold">for</span>(;i<span style="color: #333333">&lt;=</span>r; i<span style="color: #333333">+=</span>p) {
+				<span style="color: #008800; font-weight: bold">if</span>(i<span style="color: #333333">!=</span>p) {
+					v[i<span style="color: #333333">-</span>l]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>;
+				}
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>mx; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(v[i])
+			cout<span style="color: #333333">&lt;&lt;</span>l<span style="color: #333333">+</span>i<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+	}
+} 
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of segmented sieve-->
+
+
+            <!--Binary Expo starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Binary Exponentiation</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%">ll <span style="color: #0066BB; font-weight: bold">binexpor</span>(ll a, ll b) {
+	ll res <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">if</span> (b <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+	}
+	<span style="color: #008800; font-weight: bold">while</span> (b <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (b <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+			res <span style="color: #333333">*=</span> a;
+		}
+		a <span style="color: #333333">*=</span> a;
+		b <span style="color: #333333">/=</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+	}
+	<span style="color: #008800; font-weight: bold">return</span> res;
+}
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of binary expo-->
+
+
+
+            <!--Prime Factorisation starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Prime Factorisation (sqrt(N))</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> primeFactor(T n) {
+	<span style="color: #008800; font-weight: bold">for</span>(T i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>; i*i<span style="color: #333333">&lt;=</span>n; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(n<span style="color: #333333">%</span>i<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">0</span>) {
+			T cnt <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+			<span style="color: #008800; font-weight: bold">while</span>(n<span style="color: #333333">%</span>i<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">0</span>) {
+				cnt<span style="color: #333333">++</span>;
+				n<span style="color: #333333">/=</span>i;
+			}
+			cout<span style="color: #333333">&lt;&lt;</span>i<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;^&quot;</span><span style="color: #333333">&lt;&lt;</span>cnt<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+		}
+	}
+	<span style="color: #008800; font-weight: bold">if</span>(n<span style="color: #333333">&gt;</span><span style="color: #0000DD; font-weight: bold">1</span>) {
+		cout<span style="color: #333333">&lt;&lt;</span>n<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;^&quot;</span><span style="color: #333333">&lt;&lt;</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+	}
+}
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of prime factorisation-->
+
+
+
+            <!--Prime Factorisation starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Prime Factorisation (log(N))</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> arr[<span style="color: #0000DD; font-weight: bold">1000001</span>];
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">primeFactorisation</span>() {
+	<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> n<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1000000</span>;
+	arr[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">=</span>arr[<span style="color: #0000DD; font-weight: bold">1</span>]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>;
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">&lt;=</span>n; i<span style="color: #333333">++</span>) {
+		arr[i]<span style="color: #333333">=</span>i;
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">4</span>; i<span style="color: #333333">&lt;=</span>n; i<span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">2</span>) {
+		arr[i]<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>;
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">3</span>; i<span style="color: #333333">*</span>i<span style="color: #333333">&lt;=</span>n; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(arr[i]<span style="color: #333333">==</span>i) {
+			<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span>i<span style="color: #333333">*</span>i; j<span style="color: #333333">&lt;</span>n; j<span style="color: #333333">+=</span>i) {
+				<span style="color: #008800; font-weight: bold">if</span>(arr[j]<span style="color: #333333">==</span>j) {
+					arr[j]<span style="color: #333333">=</span>i;
+				}
+			}
+		}
+	}
+}
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printFactors</span>(<span style="color: #333399; font-weight: bold">int</span> n) {
+	<span style="color: #008800; font-weight: bold">while</span> (n <span style="color: #333333">!=</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+		cout<span style="color: #333333">&lt;&lt;</span>arr[n]<span style="color: #333333">&lt;&lt;</span><span style="background-color: #fff0f0">&quot; &quot;</span>;
+		n <span style="color: #333333">/=</span> arr[n];
+	}
+}
+</pre></td></tr></table></div>
+
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of prime factorisation-->
+
+
+
+            <!--Matrix Expnentiation starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Matrix Exponentiation</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#define N 101</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">matrixExponentation</span> {
+<span style="color: #997700; font-weight: bold">public:</span>
+	T ar[N][N], I[N][N];
+	<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">identity</span>(T dim) {
+		memset(I, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #008800; font-weight: bold">sizeof</span>(I));
+		<span style="color: #008800; font-weight: bold">for</span> (T i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;=</span> dim; i<span style="color: #333333">++</span>) {
+			I[i][i] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+		}
+	}
+	<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">multiply</span>(T Ix[][N], T Ax[][N], T dim) {
+		T res[dim <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>][dim <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>];
+		<span style="color: #008800; font-weight: bold">for</span> (T i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;=</span> dim; i<span style="color: #333333">++</span>) {
+			<span style="color: #008800; font-weight: bold">for</span> (T j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; j <span style="color: #333333">&lt;=</span> dim; j<span style="color: #333333">++</span>) {
+				res[i][j] <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+				<span style="color: #008800; font-weight: bold">for</span> (T k <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; k <span style="color: #333333">&lt;=</span> dim; k<span style="color: #333333">++</span>) {
+					res[i][j] <span style="color: #333333">+=</span> Ix[i][k] <span style="color: #333333">*</span> Ax[k][j];
+				}
+			}
+		}
+		<span style="color: #008800; font-weight: bold">for</span> (T i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;=</span> dim; i<span style="color: #333333">++</span>) {
+			<span style="color: #008800; font-weight: bold">for</span> (T j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; j <span style="color: #333333">&lt;=</span> dim; j<span style="color: #333333">++</span>) {
+				Ix[i][j] <span style="color: #333333">=</span> res[i][j];
+			}
+		}
+	}
+	<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">power</span>(T A[][N], T dim, T n) {
+		identity(dim);
+		<span style="color: #008800; font-weight: bold">while</span> (n) {
+			<span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+				multiply(I, A, dim);
+				n<span style="color: #333333">--</span>;
+			}
+			<span style="color: #008800; font-weight: bold">else</span> {
+				multiply(A, A, dim);
+				n <span style="color: #333333">/=</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+			}
+		}
+		<span style="color: #008800; font-weight: bold">for</span>(T i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span>dim; i<span style="color: #333333">++</span>) {
+			<span style="color: #008800; font-weight: bold">for</span>(T j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; j<span style="color: #333333">&lt;=</span>dim; j<span style="color: #333333">++</span>) {
+				A[i][j] <span style="color: #333333">=</span> I[i][j];
+			}
+		}
+	}
+	<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printResMatrix</span> (T A[][N], T dim) {
+		<span style="color: #008800; font-weight: bold">for</span> (T i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;=</span> dim; i<span style="color: #333333">++</span>) {
+			<span style="color: #008800; font-weight: bold">for</span> (T j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>; j <span style="color: #333333">&lt;=</span> dim; j<span style="color: #333333">++</span>) {
+				cout <span style="color: #333333">&lt;&lt;</span> A[i][j] <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span>;
+			}
+			cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+		}
+	}
+	<span style="color: #888888">/* In main()</span>
+<span style="color: #888888">	matrixExponentation&lt;int&gt; M;</span>
+<span style="color: #888888">	cin &gt;&gt; M.ar[i][j];</span>
+<span style="color: #888888">	M.power(M.ar, dim, n);</span>
+<span style="color: #888888">	M.printResMatrix(dim);</span>
+<span style="color: #888888">	*/</span>
+};
+</pre></td></tr></table></div>
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of Matrix exponentiation-->
+
+
+
+            <!--binomial coefficient starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Binomial Coefficient nCr%P</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> F[<span style="color: #0000DD; font-weight: bold">1000006</span>];
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">binomialCoefficient</span> {
+<span style="color: #997700; font-weight: bold">public:</span>
+	<span style="color: #333399; font-weight: bold">long</span> <span style="color: #333399; font-weight: bold">long</span> P <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1000000007</span>;
+	T <span style="color: #0066BB; font-weight: bold">power</span>(T a, T n) {
+		T res <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+		<span style="color: #008800; font-weight: bold">while</span> (n) {
+			<span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&amp;</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+				res <span style="color: #333333">=</span> (res <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">1LL</span> <span style="color: #333333">*</span> a) <span style="color: #333333">%</span> P;
+			}
+			n <span style="color: #333333">/=</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+			a <span style="color: #333333">=</span> (a <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">1LL</span> <span style="color: #333333">*</span> a) <span style="color: #333333">%</span> P;
+		}
+		<span style="color: #008800; font-weight: bold">return</span> res;
+	}
+	<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">factorial</span>() {
+		<span style="color: #008800; font-weight: bold">for</span> (T i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>; i <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">1000001</span>; i<span style="color: #333333">++</span>) {
+			F[i] <span style="color: #333333">=</span> (F[i <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>] <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">1LL</span> <span style="color: #333333">*</span> i) <span style="color: #333333">%</span> P;
+		}
+	}
+	T <span style="color: #0066BB; font-weight: bold">coefficient</span>(T n, T k) {
+		<span style="color: #008800; font-weight: bold">if</span> (k <span style="color: #333333">&gt;</span> n) {
+			<span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+		}
+		T res <span style="color: #333333">=</span> F[n];
+		res <span style="color: #333333">=</span> (res <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">1LL</span> <span style="color: #333333">*</span> power(F[k], P<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>)) <span style="color: #333333">%</span> P;
+		res <span style="color: #333333">=</span> (res <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">1LL</span> <span style="color: #333333">*</span> power(F[n<span style="color: #333333">-</span>k], P<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>)) <span style="color: #333333">%</span> P;
+		<span style="color: #008800; font-weight: bold">return</span> res;
+	}
+};
+<span style="color: #888888">// In main()</span>
+<span style="color: #888888">// F[0] = F[1] = 1;</span>
+<span style="color: #888888">// binomialCoefficient&lt;long long&gt; nCr;</span>
+<span style="color: #888888">// nCr.factorial();</span>
+</pre></td></tr></table></div>
+
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of binomial Coeficient-->
+
+
+
+			<!--Euler totient function starts starts-->
+            <div class="col-sm-12">
+                <div class="col-sm-12">
+                    <h5><br>Euler Totient Function</h5>
+                    <!--code starts-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// sqrtN</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+T ETF(T n) {
+	T res <span style="color: #333333">=</span> n;
+	<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>; i <span style="color: #333333">*</span> i <span style="color: #333333">&lt;=</span> n; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">%</span> i <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+			res <span style="color: #333333">/=</span> i;
+			res <span style="color: #333333">*=</span> (i <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>);
+			<span style="color: #008800; font-weight: bold">while</span> (n <span style="color: #333333">%</span> i <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>)  {
+				n <span style="color: #333333">/=</span> i;
+			}
+		}
+	}
+	<span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+		res <span style="color: #333333">/=</span> n;
+		res <span style="color: #333333">*=</span> (n <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>);
+	}
+	<span style="color: #008800; font-weight: bold">return</span> res;
+}
+<span style="color: #888888">// Nlog(logN)</span>
+<span style="color: #333399; font-weight: bold">int</span> phi[<span style="color: #0000DD; font-weight: bold">1000005</span>];
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">ETFSieve</span>(<span style="color: #333399; font-weight: bold">int</span> mx) { <span style="color: #888888">// Nlog(logN)</span>
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span>mx; i<span style="color: #333333">++</span>) {
+		phi[i]<span style="color: #333333">=</span>i;
+	}
+	<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">&lt;=</span>mx; i<span style="color: #333333">++</span>) {
+		<span style="color: #008800; font-weight: bold">if</span>(phi[i]<span style="color: #333333">==</span>i) {
+			<span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span>i; j<span style="color: #333333">&lt;=</span>mx; j<span style="color: #333333">+=</span>i) {
+				phi[j]<span style="color: #333333">/=</span>i;
+				phi[j]<span style="color: #333333">*=</span>(i<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>);
+			}
+		}
+	}
+}
+</pre></td></tr></table></div>
+
+
+
+                    <!--code ends-->
+
+                </div>
+            </div> <!--end of Euler Totient Function-->
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+        <!--Number theory ends here-->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br><br>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

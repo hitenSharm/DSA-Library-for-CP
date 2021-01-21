@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Algorithms and Data Structures</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mt-sm-4">
+                <h2>Data Structures and Algorithms</h2>
+            </div>
+        </div>
+
+        <!--Navbar starts here-->
+
+        <ul class="nav nav-tabs mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Number Theory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="graph.html">Graphs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dp.html">Dyanmic Programming</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="geometry.html">Geometry</a>
+            </li>
+        </ul>
+
+
+        <!--Navbar ends here-->
+
+
+        <!--sub menu starts-->
+
+
+        <div class="btn-group btn-groups mt-5" role="group" aria-label="Basic example">
+
+            <a href="fenwick.html">
+                <button type="button" class="btn btn-light rounded-0">Fenwick Tree</button>
+            </a>
+            
+            <a href="segmenttree.html">
+                <button type="button" class="btn btn-light rounded-0">Segment Trees</button>
+            </a>
+
+
+            <a href="persistentst.html">
+                <button type="button" class="btn btn-light rounded-0">Persistent Segment Tree</button>
+            </a>
+          </div>
+
+
+
+        <!-- sub menu ends -->
+
+
+
+
+        <!--Number Theory-->
+        <div class="row mt-sm-5">
+            <h3> Segment Tree </h3>
+
+
+            <!--Rectable Geometry-->
+            <div class="col-sm-12 mt-4">
+                <div class="col-sm-12">
+                    <h5><br>RMQ</h5>
+                    <!--code-->
+
+                    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">segmentTree</span> {
+<span style="color: #997700; font-weight: bold">public:</span>
+	T n;
+	T st[<span style="color: #0000DD; font-weight: bold">4</span> <span style="color: #333333">*</span> MAXN];
+	vector<span style="color: #333333">&lt;</span>T <span style="color: #333333">&gt;</span> ar;
+
+	segmentTree(T size) {
+		<span style="color: #008800; font-weight: bold">this</span><span style="color: #333333">-&gt;</span>n <span style="color: #333333">=</span> size;
+		ar.assign(size <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>, (T)<span style="color: #6600EE; font-weight: bold">1e8</span>);
+	}
+
+	segmentTree(vector<span style="color: #333333">&lt;</span>T <span style="color: #333333">&gt;</span> a) <span style="color: #333333">:</span> segmentTree(a.size()) {
+		<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">size_t</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> a.size(); i<span style="color: #333333">++</span>) {
+			ar[i] <span style="color: #333333">=</span> a[i];
+		}
+	}
+
+	<span style="color: #333399; font-weight: bold">void</span> build (T v, T left, T right) {
+		<span style="color: #008800; font-weight: bold">if</span> (left <span style="color: #333333">==</span> right) {
+			st[v] <span style="color: #333333">=</span> ar[left];
+		}
+		<span style="color: #008800; font-weight: bold">else</span> {
+			T mid <span style="color: #333333">=</span> (left <span style="color: #333333">+</span> right) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+			build(v <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">2</span>, left, mid);
+			build(v <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>, mid <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>, right);
+			st[v] <span style="color: #333333">=</span> min(st[v <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">2</span>], st[v <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>]);
+		}
+	}
+
+	<span style="color: #333399; font-weight: bold">void</span> printSegmentTree() {
+		<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">10</span>; i<span style="color: #333333">++</span>) {
+			cout <span style="color: #333333">&lt;&lt;</span> st[i] <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span>;
+		}
+		cout <span style="color: #333333">&lt;&lt;</span> endl;
+	}
+
+	T queryMinimum(T v, T ss, T se, T qs, T qe) {
+		<span style="color: #008800; font-weight: bold">if</span> (qs <span style="color: #333333">&lt;=</span> ss and qe <span style="color: #333333">&gt;=</span> se) {
+			<span style="color: #008800; font-weight: bold">return</span> st[v];
+		}
+		<span style="color: #008800; font-weight: bold">if</span> (se <span style="color: #333333">&lt;</span> qs <span style="color: #333333">||</span> ss <span style="color: #333333">&gt;</span> qe) {
+			<span style="color: #008800; font-weight: bold">return</span> inf;
+		}
+		T mid <span style="color: #333333">=</span> (ss <span style="color: #333333">+</span> se) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+		<span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">min</span>(queryMinimum(v<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>, ss, mid, qs, min(qe, mid)), queryMinimum(v<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, mid<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, se, max(mid<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, qs), qe));
+	}
+
+};
+</pre></td></tr></table></div>
+
+                   
+
+                    <!--code end-->
+                </div>
+            </div>
+            <!--End of Rectangle Geometry-->
+
+
+
+        </div>
+
+        <!--Geometry ends here-->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br><br>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
