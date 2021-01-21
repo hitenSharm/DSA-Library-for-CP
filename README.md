@@ -1,5 +1,5 @@
-# ICPC
-> Preparatory material for CP and similiar contests along with data structures and algorithms library for CP.
+# DSA Library for CP
+> Preparatory material for CP along with data structures and algorithms library for CP.
 
 Good overview of the syllabus - [Syllabus](https://www.codechef.com/certification/data-structures-and-algorithms/prepare#advanced)
 
