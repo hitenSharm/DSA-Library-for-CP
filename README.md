@@ -7,7 +7,7 @@ All in one place to read these along with implementation - [https://cp-algorithm
 
 ICPC Live Archive(Past ICPC Problems) - [ICPC Live Archive](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8)
 
-C++ Debugging tools - (CF Blog by ramchandra)[https://codeforces.com/blog/entry/79024]
+C++ Debugging tools - [CF Blog by ramchandra](https://codeforces.com/blog/entry/79024)
 
 ## Advanced/Unusual-topics Resources
 
